@@ -1,0 +1,16 @@
+
+
+enclave {
+    from "sgx_tstdc.edl" import *;
+    trusted {
+	/* define ECALLs here */
+	public uint32_t ping ();
+	public uint32_t pong(uint32_t inputValue);
+	
+	};
+    untrusted {
+	/* define OCALLS here */
+	void ocall_print([in,string]const char* str);
+	};
+ 
+};
