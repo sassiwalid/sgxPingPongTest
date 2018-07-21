@@ -37,14 +37,17 @@ int main(int argc, char const *argv[]) {
         }
     }
     // create the two enclaves
-    ret = sgx_create_enclave("enclaveping.signed.so", 1, &token, &updated, &pingEnclaveId, NULL);
+
+    ret = sgx_create_enclave("enclave.signed.so", 1, &token, &updated, &pingEnclaveId, NULL);
     //handle exception 
     if (ret != SGX_SUCCESS) {
         std::cout << "enclave ping not created" << std::endl;
+	return -1;
     } 
-    ret = sgx_create_enclave("enclavepong.signed.so", 1, &token , &updated, &pongEnclaveId, NULL);
+    ret = sgx_create_enclave("enclave.signed.so", 1, &token , &updated, &pongEnclaveId, NULL);
     if (ret != SGX_SUCCESS) {
         std::cout << "enclave pong not created" << std::endl;
+	return -1;
     } 
    for (i=0;i<10;i++){
 
