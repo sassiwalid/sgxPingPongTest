@@ -18,7 +18,7 @@ int main(int argc, char const *argv[]) {
     sgx_launch_token_t token = {0};
     char token_path[20] = {"enclave.token"};
     int i ;
-    uint32_t ptr;
+    uint32_t pingVal;
     uint32_t  pongVal;
     int updated = 0;
     // read the enclave token 
@@ -49,10 +49,15 @@ int main(int argc, char const *argv[]) {
         std::cout << "enclave pong not created" << std::endl;
 	return -1;
     } 
+   std::cout << "pingEnclaveId :"  << std::endl;
+   std::cout << pingEnclaveId << std::endl;
+   std::cout << "pongEnclaveId :" << std::endl;
+   std::cout << pongEnclaveId << std::endl;
+   // launch the two enclaves 
    for (i=0;i<10;i++){
 
-	sgx_status_t enclaveping_status = ping(pingEnclaveId, &ptr);
-        sgx_status_t enclavepong_status = pong(pongEnclaveId, &pongVal,ptr);
+	sgx_status_t enclaveping_status = ping(pingEnclaveId, &pingVal);
+        sgx_status_t enclavepong_status = pong(pongEnclaveId, &pongVal,pingVal);
 	//handle exceptions  
 	if (enclaveping_status != SGX_SUCCESS) {
         std::cout << "enclave ping not launched" << std::endl;
@@ -60,7 +65,7 @@ int main(int argc, char const *argv[]) {
     	if (enclaveping_status != SGX_SUCCESS) {
         std::cout << "enclave pong not launched" << std::endl;
     	}
-	printf("Random number: %d\n", ptr);
+	printf("ping number: %d\n", pingVal);
    	printf("pong run status :%d\n",pongVal);
     }	
  return 0;
