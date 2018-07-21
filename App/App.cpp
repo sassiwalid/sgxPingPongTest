@@ -16,9 +16,24 @@ void ocall_print(const char* str) {
 int main(int argc, char const *argv[]) {
     sgx_status_t ret;
     sgx_launch_token_t token = {0};
+    char token_path[20] = {"enclave.token"};
     int i ;
     uint32_t ptr;
     uint32_t  pongVal;
+    FILE *fp = fopen(token_path, "rb");
+    if (fp == NULL && (fp = fopen(token_path, "wb")) == NULL) {
+        printf("Warning: Failed to create/open the launch token file \"%s\".\n", token_path);
+    }
+
+    if (fp != NULL) {
+        /* read the token from saved file */
+        size_t read_num = fread(token, 1, sizeof(sgx_launch_token_t), fp);
+        if (read_num != 0 && read_num != sizeof(sgx_launch_token_t)) {
+            /* if token is invalid, clear the buffer */
+            memset(&token, 0x0, sizeof(sgx_launch_token_t));
+            printf("Warning: Invalid launch token read from \"%s\".\n",token_path );
+        }
+    }
     ret = sgx_create_enclave("enclavePing", 1, &token, 0, &pingEnclaveId, NULL);
     if (ret != SGX_SUCCESS) {
         std::cout << "enclave ping not created" << std::endl;
