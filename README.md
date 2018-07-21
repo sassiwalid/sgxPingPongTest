@@ -49,7 +49,7 @@ $ make
 $ ./App
 ```
 
-#### Video Démo:
+#### Demonstration Video :
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=B5kFeSH2B8Y
 " target="_blank"><img src="http://img.youtube.com/vi/B5kFeSH2B8Y/0.jpg" 
 alt="PingPongTestDemo" width="240" height="180" border="10" /></a>
