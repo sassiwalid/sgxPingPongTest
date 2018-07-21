@@ -28,6 +28,14 @@ $ make
 $ make sdk_install_pkg
 $ make psw_install_pkg
 ```
+5. You will got two binary files, Intel(R) SGX PSW installer in the linux/installer/bin folder.
+*sgx_linux_x64_sdk_${version}.bin*, so install the sdk using this command:
+```shell
+$ ./sgx_linux_x64_sdk_${version}.bin
+```
+6. After installing, you should setup the environnement variable using this command.
+
+## Running the pingpong demo 
 
 #### Author:
 ⋅⋅* Walid Sassi, University of carthage.
