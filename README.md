@@ -52,4 +52,4 @@ $ ./App
 #### Versioning:
 1.0
 #### Author:
-* Walid Sassi, Assistant professor, University of carthage.
+* Walid Sassi, Assistant professor, University of carthage.[sassi.walid@outlook.com](sassi.walid@outlook.com)
