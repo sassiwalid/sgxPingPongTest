@@ -9,5 +9,20 @@ In the following, we describe the different messages of the protocol:
 3. The application sends [a] to the Enclave Pong.
 4. The Enclave Pong decrypts and sends the boolean result of a > b.
 ### Prerequisites
+Intel(R) Software Guard Extensions (Intel(R) SGX) is an Intel technology for application developers seeking to protect select code and data from disclosure or modification.
+to use the SGX sdk in Ubuntu 16.04 LTS, you should  follow this steps:
+1. Install tools to build the SGX SDK using this command:
+```shell
+sudo apt-get install build-essential ocaml automake autoconf libtool wget python
+```
+2. Use the script download-prebuilt.sh inside source code package to download prebuilt binaries to prebuilt folder like this:
+```shell
+$ ./download_prebuilt.sh
+```
+3. To build both Intel(R) SGX SDK and PSW with default configuration, enter the following command:
+```shell
+$ make
+```
+
 #### Author:
-⋅⋅* Walid Sassi.
+⋅⋅* Walid Sassi, University of carthage.
