@@ -20,6 +20,7 @@ int main(int argc, char const *argv[]) {
     int i ;
     uint32_t ptr;
     uint32_t  pongVal;
+    int updated = 0;
     // read the enclave token 
     FILE *fp = fopen(token_path, "rb");
     if (fp == NULL && (fp = fopen(token_path, "wb")) == NULL) {
@@ -35,18 +36,21 @@ int main(int argc, char const *argv[]) {
             printf("Warning: Invalid launch token read from \"%s\".\n",token_path );
         }
     }
-    //
-    ret = sgx_create_enclave("enclaveping.so", 0, &token, 0, &pingEnclaveId, NULL);
+    // create the two enclaves
+    ret = sgx_create_enclave("enclaveping.signed.so", 1, &token, &updated, &pingEnclaveId, NULL);
+    //handle exception 
     if (ret != SGX_SUCCESS) {
         std::cout << "enclave ping not created" << std::endl;
     } 
-    ret = sgx_create_enclave("enclavepong.so", 0, &token , 0, &pongEnclaveId, NULL);
+    ret = sgx_create_enclave("enclavepong.signed.so", 1, &token , &updated, &pongEnclaveId, NULL);
     if (ret != SGX_SUCCESS) {
         std::cout << "enclave pong not created" << std::endl;
     } 
    for (i=0;i<10;i++){
+
 	sgx_status_t enclaveping_status = ping(pingEnclaveId, &ptr);
         sgx_status_t enclavepong_status = pong(pongEnclaveId, &pongVal,ptr);
+	//handle exceptions  
 	if (enclaveping_status != SGX_SUCCESS) {
         std::cout << "enclave ping not launched" << std::endl;
     	}
