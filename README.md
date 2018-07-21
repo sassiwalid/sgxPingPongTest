@@ -23,6 +23,11 @@ $ ./download_prebuilt.sh
 ```shell
 $ make
 ```
+4. Now, you should build the SGX SDK Installer and also the SGX PSW installer using this two commands:
+```shell
+$ make sdk_install_pkg
+$ make psw_install_pkg
+```
 
 #### Author:
 ⋅⋅* Walid Sassi, University of carthage.
