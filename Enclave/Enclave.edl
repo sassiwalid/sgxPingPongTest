@@ -4,11 +4,13 @@ enclave {
     from "sgx_tstdc.edl" import *;
     trusted {
 	/* define ECALLs here */
+	/* this method return  the [a] random number */
 	public uint32_t ping ();
+	/* this method generate  the [b] random number, return 1 when [a] > [b] 0 else.*/
 	public uint32_t pong(uint32_t inputValue);
 	
 	};
-    untrusted {
+	untrusted {
 	/* define OCALLS here */
 	void ocall_print([in,string]const char* str);
 	};

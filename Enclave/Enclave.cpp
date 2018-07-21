@@ -8,11 +8,12 @@ uint32_t ping (){
     sgx_read_rand((unsigned char *) &val, 4);
     return val;
 }
+
 uint32_t pong (uint32_t inputValue){
-uint32_t val; 
-sgx_read_rand((unsigned char *) &val, 4);
-if (inputValue > val){
-return 1;
-}
-return 0;
+   uint32_t val; 
+   sgx_read_rand((unsigned char *) &val, 4);
+   if (inputValue > val){
+     return 1;
+   }
+  return 0;
 }
