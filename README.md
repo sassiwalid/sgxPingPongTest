@@ -36,6 +36,20 @@ $ ./sgx_linux_x64_sdk_${version}.bin
 6. After installing, you should setup the environnement variable using this command.
 
 ## Running the pingpong demo 
+After downloading the demo, you shoud access to the directory by this command:
+```shell
+$ cd {path_Directory_pingpongDemo}
+```
+1. Compile the project using the make command:
+```shell
+$ make
+```
+2. Run the demo:
+```shell
+$ ./App
+```
 
+#### Versioning:
+1.0
 #### Author:
-⋅⋅* Walid Sassi, University of carthage.
+* Walid Sassi, Assistant professor, University of carthage.
