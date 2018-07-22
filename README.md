@@ -36,7 +36,7 @@ $ ./sgx_linux_x64_sdk_${version}.bin
 6. After installing, you should setup the environment variable using this command.
 
 ## Running the pingpong demo 
-After downloading the demo, you shoud access to the directory by this command:
+After downloading the demo, you can access the directory using this command:
 ```shell
 $ cd {path_Directory_pingpongDemo}
 ```
