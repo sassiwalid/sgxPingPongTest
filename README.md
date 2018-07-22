@@ -56,7 +56,7 @@ alt="PingPongTestDemo" width="240" height="180" border="10" /></a>
 #### Versioning:
 1.0
 #### Author:
-* Walid Sassi, Assistant professor, University of carthage.
+* Walid Sassi, Assistant professor, University of Carthage.
 Email: [sassi.walid@outlook.com](sassi.walid@outlook.com)
 
 
