@@ -52,7 +52,7 @@ $ ./App
 #### Demonstration Video :
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=B5kFeSH2B8Y
 " target="_blank"><img src="http://img.youtube.com/vi/B5kFeSH2B8Y/0.jpg" 
-alt="PingPongTestDemo" width="240" height="180" border="10" /></a>
+alt="PingPongTestDemo" width="340" height="280" border="10" /></a>
 #### Versioning:
 1.0
 #### Author:
